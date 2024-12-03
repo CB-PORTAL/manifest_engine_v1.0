@@ -3,19 +3,53 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
 }
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  25% {
+    filter: hue-rotate(90deg) brightness(1.2);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg) brightness(1.4);
+  }
+  75% {
+    filter: hue-rotate(270deg) brightness(1.2);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(360deg) brightness(1);
+  }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes nodePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(147,51,234,0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(147,51,234,0.4);
+  }
+} 
